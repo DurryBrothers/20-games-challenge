@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://bf812dkbpcc3g"]
+
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_8up27"]
+[ext_resource type="PackedScene" uid="uid://dhjb6kmmr8ot7" path="res://Scenes/background.tscn" id="1_lrc2b"]
+[ext_resource type="PackedScene" uid="uid://csxk5h8402ahh" path="res://Scenes/paddle.tscn" id="2_0tl4w"]
+[ext_resource type="Texture2D" uid="uid://dapydk3xh2uy4" path="res://Assets/separator.png" id="2_h8fbr"]
+[ext_resource type="PackedScene" uid="uid://8n8cltjrulme" path="res://Scenes/barrier.tscn" id="3_g7x65"]
+[ext_resource type="PackedScene" uid="uid://v68q64y6ljc3" path="res://Scenes/goal.tscn" id="6_arlx6"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_8up27")
+
+[node name="Background" parent="." instance=ExtResource("1_lrc2b")]
+
+[node name="Divider" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.666667)
+position = Vector2(320, 180)
+texture = ExtResource("2_h8fbr")
+
+[node name="Roof" parent="." groups=["roof"] instance=ExtResource("3_g7x65")]
+position = Vector2(320, -6)
+
+[node name="Floor" parent="." groups=["floor"] instance=ExtResource("3_g7x65")]
+position = Vector2(320, 366)
+
+[node name="PlayerOne" parent="." instance=ExtResource("2_0tl4w")]
+position = Vector2(40, 180)
+player = 1
+
+[node name="PlayerTwo" parent="." instance=ExtResource("2_0tl4w")]
+position = Vector2(600, 180)
+player = 2
+
+[node name="BallSpawnPos" type="Marker2D" parent="."]
+position = Vector2(320, 180)
+
+[node name="Goals" type="Node2D" parent="."]
+
+[node name="PlayerOneGoal" parent="Goals" groups=["player_one_goal"] instance=ExtResource("6_arlx6")]
+position = Vector2(0, 180)
+
+[node name="PlayerTwoGoal" parent="Goals" groups=["player_two_goal"] instance=ExtResource("6_arlx6")]
+position = Vector2(640, 180)
