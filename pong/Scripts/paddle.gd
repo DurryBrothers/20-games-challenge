@@ -3,7 +3,7 @@ extends Area2D
 @export var player: int
 
 var speed: int = 200
-var comp_speed: int = 150
+var comp_speed: int = 125
 var can_go_up: bool = true
 var can_go_down: bool = true
 
@@ -21,6 +21,11 @@ func _process(delta: float) -> void:
 			position.y -= speed * delta
 		if Input.is_action_pressed("p2_down") and can_go_down:
 			position.y += speed * delta
+	if player == 3:
+		if GameManager.ball_pos.y < position.y and can_go_up:
+			position.y -= comp_speed * delta
+		if GameManager.ball_pos.y > position.y and can_go_down:
+			position.y += comp_speed * delta
 
 
 func _on_area_entered(area: Area2D) -> void:

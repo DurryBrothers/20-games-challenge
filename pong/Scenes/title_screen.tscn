@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bt5gvu05wsptg"]
+[gd_scene load_steps=9 format=3 uid="uid://bt5gvu05wsptg"]
 
 [ext_resource type="FontFile" uid="uid://ditsr0y55epnt" path="res://Assets/Resources/font_resource.tres" id="1_8ue08"]
 [ext_resource type="Script" path="res://Scripts/title_screen.gd" id="1_44rdo"]
@@ -9,6 +9,10 @@ default_font = ExtResource("1_8ue08")
 default_font_size = 84
 
 [sub_resource type="Theme" id="Theme_0bfcb"]
+default_font = ExtResource("1_8ue08")
+default_font_size = 32
+
+[sub_resource type="Theme" id="Theme_10212"]
 default_font = ExtResource("1_8ue08")
 default_font_size = 32
 
@@ -45,8 +49,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_top = 36
-theme_override_constants/margin_bottom = 42
+theme_override_constants/margin_top = 9
+theme_override_constants/margin_bottom = 20
 
 [node name="Label" type="Label" parent="MarginContainer"]
 layout_mode = 2
@@ -65,7 +69,13 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = SubResource("Theme_0bfcb")
-text = "Play"
+text = "One player"
+
+[node name="TwoPlayerButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_10212")
+text = "Two player"
 
 [node name="AboutButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -85,5 +95,6 @@ text = "Quit
 stream = ExtResource("4_nwpjf")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/TwoPlayerButton" to="." method="_on_two_player_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/AboutButton" to="." method="_on_about_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

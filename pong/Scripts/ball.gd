@@ -20,6 +20,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	position += direction * speed * delta
+	GameManager.ball_pos = global_position
 
 
 func set_random_direction() -> Vector2:

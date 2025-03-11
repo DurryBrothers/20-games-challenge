@@ -5,7 +5,7 @@ extends Control
 func _on_play_button_pressed() -> void:
 	ui_select_sound.play()
 	await ui_select_sound.finished
-	get_tree().change_scene_to_file("res://Scenes/main.tscn")
+	get_tree().change_scene_to_file("res://Scenes/main_single.tscn")
 
 
 func _on_about_button_pressed() -> void:
@@ -18,3 +18,9 @@ func _on_quit_button_pressed() -> void:
 	ui_select_sound.play()
 	await ui_select_sound.finished
 	get_tree().quit()
+
+
+func _on_two_player_button_pressed() -> void:
+	ui_select_sound.play()
+	await ui_select_sound.finished
+	get_tree().change_scene_to_file("res://Scenes/main.tscn")
